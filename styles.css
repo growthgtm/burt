@@ -1,0 +1,564 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --primary-color: #333; /* Used for dark text and footer background */
+  --secondary-color: #666; /* Used for secondary text */
+  --highlight-color: #007aff; /* Added the missing highlight color */
+  --background-color: #f5f8fd; /* Light background */
+  /* Re-defining base colors used in the original CSS for clarity, assuming they are related to primary/secondary */
+  --base-800: var(--primary-color); 
+  --base-100: var(--background-color);
+  --base: var(--secondary-color);
+}
+
+body {
+  font-family: "Inter", sans-serif, Arial, Helvetica;
+  font-size: 16px;
+  line-height: 1.6;
+  color: var(--primary-color);
+  background-color: var(--background-color);
+}
+
+a {
+  text-decoration: none;
+  color: var(--highlight-color); /* Using highlight color for links */
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 20px;
+  background-color: white;
+  border-bottom: 1px solid #ddd;
+}
+
+header .logo-holder {
+  display: flex;
+  padding: 10px;
+  align-items: center;
+  font-weight: 600;
+  color: var(--base-800);
+}
+
+header .logo-holder .logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 32px;
+  background-color: var(--base-800);
+  color: var(--base-100);
+  height: 64px;
+  width: 64px;
+  margin-right: 20px;
+  border-radius: 50%;
+}
+
+header .logo-holder .logo-text {
+  flex: 1;
+}
+
+header nav {
+  display: flex;
+  align-items: center;
+}
+
+header nav ul {
+  display: flex;
+  gap: 20px;
+}
+
+header nav ul li {
+  display: inline-block;
+}
+
+header nav ul li a {
+  color: var(--primary-color);
+  font-weight: 500;
+  padding: 8px 16px;
+  transition: color 0.2s;
+}
+
+header nav .mobile-toggle {
+  display: none;
+  color: var(--base-800);
+  padding: 10px;
+}
+
+/* Header Media Queries */
+@media (max-width: 1024px) {
+  header {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+@media (max-width: 768px) {
+  header {
+    flex-direction: column;
+    align-items: center;
+    display: block;
+    padding: 20px 20px;
+  }
+  header nav {
+    margin-top: 10px;
+    width: 100%;
+  }
+  header nav ul {
+    display: none;
+    flex-direction: column;
+    text-align: center;
+    width: 100%;
+  }
+  header nav ul a {
+    width: 100%;
+  }
+  header nav ul.active {
+    display: flex;
+  }
+  header nav .mobile-toggle {
+    display: inline-block;
+    position: absolute;
+    top: 20px;
+    right: 20px;
+  }
+}
+
+/* General Section and Container Styles */
+section {
+  max-width: 1440px;
+  margin: auto;
+  gap: 30px;
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+
+@media (max-width: 1440px) {
+  section {
+    padding-left: 30px;
+    padding-right: 30px;
+  }
+}
+
+.button {
+  padding: 12px 24px;
+  border-radius: 24px;
+  background-color: white;
+  color: var(--primary-color);
+  border: none;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Heading Styles */
+h1 {
+  font-size: 64px;
+  line-height: 1;
+  margin-bottom: 10px;
+  color: var(--primary-color);
+}
+
+h1 small {
+  display: block;
+  font-weight: 100;
+}
+
+h2 {
+  font-size: 64px;
+  line-height: 1;
+  margin-bottom: 10px;
+  text-align: center;
+  color: var(--base-800);
+  padding: 30px;
+}
+
+h2 small {
+  display: block;
+  font-weight: 100;
+  font-size: 0.5em;
+  color: var(--base);
+}
+
+h3 {
+  font-size: 32px;
+  font-weight: 600;
+  line-height: 1;
+  margin-bottom: 20px;
+  color: var(--base-800);
+}
+
+@media (max-width: 1024px) {
+  h1, h2 {
+    font-size: 48px;
+  }
+}
+
+/* Hero Section */
+.hero {
+  display: flex;
+}
+
+@media (max-width: 1024px) {
+  .hero {
+    flex-direction: column;
+  }
+}
+
+.hero .hero-blue {
+  flex: 1;
+  border-radius: 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.hero .hero-blue span {
+  /* Hides the empty span tag on smaller screens */
+  @media (max-width: 768px) {
+    display: none;
+  }
+}
+
+.hero .hero-blue .call-to-action {
+  margin-top: 30px;
+  margin-bottom: 10px;
+}
+
+.hero .hero-blue .call-to-action a {
+  margin-right: 10px;
+  margin-bottom: 10px;
+}
+
+.hero .hero-blue .social-links {
+  padding: 20px 0px;
+}
+
+.hero .hero-blue .social-links a:hover {
+  text-decoration: none;
+}
+
+.hero .hero-yellow {
+  flex: 1;
+  border-radius: 30px;
+  display: flex;
+  justify-content: center;
+}
+
+.hero .hero-yellow img {
+  max-width: 420px;
+  border-radius: 30px;
+}
+
+.hero p {
+  font-size: 1.2rem;
+  color: var(--secondary-color);
+  margin-top: 20px;
+}
+
+/* Logos Section (Marquee) */
+.logos {
+  padding: 30px 0px;
+  mask-image: linear-gradient(
+    to right,
+    rgba(0, 0, 0, 0) 0%,
+    rgb(0, 0, 0) 12.5%,
+    rgb(0, 0, 0) 87.5%,
+    rgba(0, 0, 0, 0) 100%
+  );
+}
+
+@media (max-width: 1440px) {
+  .logos {
+    border-radius: 0px;
+  }
+}
+
+.logos .marquee {
+  width: 100vw;
+  max-width: 100%;
+  border-radius: 15px;
+  height: 128px;
+  overflow: hidden;
+  position: relative;
+}
+
+.logos .marquee .track {
+  position: absolute;
+  white-space: nowrap;
+  will-change: transform;
+  animation: marquee 40s linear infinite;
+  display: flex;
+  gap: 30px;
+}
+
+.logos img {
+  background-color: white;
+  border-radius: 19px;
+  padding: 30px;
+}
+
+@keyframes marquee {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+/* Skills Section */
+.skills .holder-blue {
+  border-radius: 10px;
+  padding: 30px;
+  display: flex;
+}
+
+@media (max-width: 1024px) {
+  .skills .holder-blue {
+    flex-direction: column;
+  }
+}
+
+.skills .holder-blue .left-column {
+  flex: 1;
+}
+
+.skills .holder-blue .left-column ul {
+  list-style-type: none;
+  gap: 10px;
+  margin-right: 100px;
+  margin-bottom: 20px;
+}
+
+@media (max-width: 1024px) {
+  .skills .holder-blue .left-column ul {
+    margin-right: 10px;
+  }
+}
+
+.skills .holder-blue .left-column ul li {
+  display: inline-block;
+  background-color: white;
+  padding: 10px 20px;
+  border-radius: 24px;
+  margin-bottom: 10px;
+}
+
+.skills .holder-blue .right-column {
+  flex: 1;
+}
+
+.skills .holder-blue .right-column p {
+  margin-bottom: 20px;
+}
+
+/* Work Experience & Education Sections (Shared Layout) */
+.skills .holder-blue,
+.work-experience .jobs,
+.education .jobs { /* Added .education .jobs here for grid layout */
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 30px; /* Increased gap slightly for consistency */
+}
+
+
+/* Work Experience Card Styles (MODIFIED) */
+.work-experience .jobs article {
+  padding: 30px;
+  background-color: white;
+  border-radius: 30px;
+  flex: 1;
+  /* Initial state for the hover effect */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.work-experience .jobs article:hover {
+  /* Apply jump and zoom effect */
+  transform: translateY(-5px) scale(1.02); /* Combined lift and 1.02 zoom */
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+}
+
+.work-experience .jobs article h3 {
+  margin-top: 20px;
+  margin-bottom: 10px;
+}
+
+.work-experience .jobs article div {
+  font-weight: 600;
+  margin-bottom: 5px;
+  color: var(--base-800);
+}
+
+.work-experience .jobs article p {
+  margin-bottom: 10px;
+  color: var(--secondary-color);
+}
+
+.work-experience .jobs article figure {
+  width: 100%;
+  padding-top: 56.25%; /* 16:9 Aspect Ratio */
+  overflow: hidden;
+  position: relative;
+  border-radius: 15px;
+}
+
+.work-experience .jobs article figure img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  object-fit: cover;
+  transition: ease 3s all;
+}
+
+.work-experience .jobs article figure figcaption {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  color: var(--background-color);
+  text-align: center;
+  padding: 10px;
+  opacity: 0;
+  visibility: hidden;
+  transition: ease 0.3s all;
+}
+
+.work-experience .jobs article figure:hover figcaption {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* Original work-experience image zoom, now removed as it conflicts with article zoom */
+/* .work-experience .jobs article figure:hover img {
+  transform: scale(1.2);
+} */
+
+@media (max-width: 1024px) {
+  .work-experience .jobs {
+    flex-direction: column;
+  }
+}
+
+/* Education Section Styling (MODIFIED) */
+.education .jobs article {
+  padding: 30px;
+  background-color: white;
+  border-radius: 30px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.education .jobs article:hover {
+  /* Apply jump and zoom effect */
+  transform: translateY(-5px) scale(1.02); /* Combined lift and 1.02 zoom */
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+}
+
+.education .jobs article h3 {
+  font-size: 28px;
+  margin-top: 0;
+  margin-bottom: 5px;
+  color: var(--primary-color);
+}
+
+.education .jobs article > div {
+  font-weight: 500;
+  margin-bottom: 15px;
+  font-size: 1em;
+}
+
+.education .jobs article p {
+  color: var(--secondary-color);
+}
+
+/* Image Transitions (General) */
+img {
+  transition: transform 0.3s;
+}
+
+/* This is the base zoom effect you wanted to replicate (1.05)
+   I've slightly reduced the article zoom to 1.02 when combined with the lift, 
+   as a full 1.05 scale can often look too dramatic on large block elements.
+   If you want a stronger article zoom, change 1.02 to 1.05 in the :hover rules above.
+*/
+img:hover {
+  transform: scale(1.05);
+}
+
+/* Footer Section Styling */
+footer {
+  background-color: var(--primary-color);
+  color: var(--background-color);
+  padding: 40px 20px;
+  text-align: center;
+  margin-top: 150px;
+}
+
+footer .container {
+  max-width: 1440px;
+  margin: auto;
+  padding-left: 30px;
+  padding-right: 30px;
+}
+
+footer a {
+  color: var(--background-color);
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s;
+}
+
+footer a:hover {
+  color: var(--highlight-color);
+  text-decoration: underline;
+}
+
+.footer-links {
+  margin-bottom: 20px;
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+}
+
+footer .social-links {
+  margin-bottom: 20px;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+footer .social-links img {
+  width: 24px;
+  height: 24px;
+  background: none;
+  padding: 0; 
+  border-radius: 0;
+  transition: transform 0.3s;
+}
+
+footer .social-links img:hover {
+    transform: scale(1.1);
+}
+
+.copyright {
+  font-size: 0.9em;
+  color: #aaa;
+}
